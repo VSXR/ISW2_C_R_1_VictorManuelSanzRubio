@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% comment "DELETE FORM" %} DELETE THE DESTINATION FROM 'DESTINATION_DETAIL' {% endcomment %}
+{% block main_contents %}
+    <div class="specific-paragraphs container-fluid">
+        <h2>DESTINATION DELETE CONFIRMATION</h2>
+        <form method="POST" action="{% url 'destination_confirm_delete' destination.id %}">
+            {% csrf_token %}
+            <p>
+                Are you sure you want to delete the destination <strong>{{ destination }}</strong>?
+            </p>
+            <a href="{% url 'destination_detail' destination.id %}" class="btn btn-secondary">CANCEL</a>
+            <button type="submit" class="btn btn-danger">DELETE</button>
+        </form>
+    </div>
+{% endblock main_contents %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - DESTINATIONS
+{% endblock title %}
+
+{% block main_contents %}
+    <h2>DESTINATIONS</h2>
+    <div class="destinationsPresentation">
+        <div class="specific-paragraphs">
+            <p>
+                At RELECLOUD, we provide an array of exceptional destinations for your space travel adventures. 
+                Our state-of-the-art ships and highly skilled crew ensure that your journey will be truly unforgettable. 
+                With competitive pricing and an extensive selection of destinations, we are your top choice for space exploration.
+                <br>
+                <br>
+                Here are some of the destinations we offer:
+                <br>
+                <ul>
+                    <li>
+                        Explore the <strong>Moon</strong>, where you can experience humanity's first footstep on lunar soil and 
+                        enjoy breathtaking views of Earth from its surface.
+                    </li>
+                    <br>
+                    <li>
+                        Discover <strong>Mars</strong>, the Red Frontier, and witness its stunning landscapes, 
+                        including ancient riverbeds and magnificent sunsets.
+                    </li>
+                    <br>
+                    <li>
+                        Visit <strong>Titan</strong>, Saturn's Misty Moon, and explore its unique terrain filled with 
+                        methane lakes and a thick atmosphere.
+                    </li>
+                    <br>
+                    <li>
+                        Indulge in luxury at our <strong>Lagrange Orbital Station</strong>, where you can enjoy fine dining, 
+                        spa treatments, and mesmerizing views of Earth as you relax in the cosmos.
+                    </li>
+                </ul>
+
+                <br>
+                And these are just a few of the incredible destinations available for your space vacation—there are many more waiting for you to explore!
+                Join us at RELECLOUD and make your journey truly unforgettable!
+            </p>
+            
+        </div>
+    </div>
+
+    <ul class="list-group container-fluid">
+        <h3>OUR DESTINATIONS:</h3>
+        {% for destination in destinations %}
+            <li class="list-group-item">
+                <h4>{{ destination.name }}</h4>
+                <a href="{% url 'destination_detail' destination.id %}" class="view-destination-btn btn list-group-item list-group-item-action">SHOW MORE</a> {% comment %} {{ destination }} iria como boton en show more (saldria el nombre del destino) {% endcomment %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock main_contents %}
+
+

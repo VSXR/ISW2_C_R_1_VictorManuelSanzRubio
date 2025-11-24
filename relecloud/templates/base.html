@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            {% block title %}
+                RELECLOUD - EXPAND YOUR HORIZONS
+            {% endblock title %}
+        </title>
+
+        <link rel="stylesheet" href="{% static 'res/css/styles.css' %}">
+        <link rel="favicon" href="{% static 'res/img/favicon/tabler--north-star.ico' %}" type="image/x-icon">
+
+        <!-- Estilos y fuentes -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    </head>
+
+    <body>
+        <!-- Encabezado -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <div class="logo-container">
+                        <a class="navbar-brand navLogo" href="{% url 'index' %}">
+                            <img src="{% static 'res/img/logo/tabler--north-star.png' %}" alt="Relecloud Star Logo" />
+                        </a>
+                        <a class="navbar-brand navName abs" href="{% url 'index' %}">RELECLOUD</a>
+                    </div>
+                    <!-- Botón de navegación para pantallas pequeñas -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menú de navegación -->
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
+                            <!-- Enlaces principales -->
+                            <li class="nav-item active">
+                                <a href="{% url 'info_request' %}" class="nav-link custom-underline active" aria-current="page">
+                                    <i class="fa-solid fa-phone"></i> REQUEST INFORMATION
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a href="{% url 'destinations' %}" class="nav-link custom-underline active" aria-current="page">
+                                    <i class="ri-hourglass-2-line"></i> DESTINATIONS
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a href="{% url 'about' %}" class="nav-link custom-underline active" aria-current="page">
+                                    <i class="fa-solid fa-question"></i> ABOUT
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Enlaces sociales -->
+                        <ul class="navbar-nav ms-auto">
+                            <div class="nav-item social">
+                                <a class="nav-item" href="https://github.com/VSXR" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- MAIN -->
+        <main class="container-fluid mt-4">
+            {% block main_contents %}
+                <!-- Contenedor principal -->
+                <div class="container-fluid">
+                    
+                    <!-- CONTENIDO PRINCIPAL -->
+                    <section class="mainContent container-fluid">
+                        <h2 class="text-center">WELCOME TO RELECLOUD</h2>
+                        <p class="specific-paragraphs text-center">
+                            Embark on an extraordinary journey beyond the stars with the most advanced space tourism experience. 
+                            Discover top-tier destinations for your interstellar travels, with cutting-edge spacecraft and highly trained crews dedicated to making your trip unforgettable. 
+                            Enjoy competitive pricing and premier locations, making us your ultimate choice for space exploration.
+                        </p>
+
+                        <!-- IMAGEN ASTRONAUTA -->
+                        <div class="image-container">
+                            <img src="{% static 'res/img/media/ASTRONAUTA.jpg' %}" class="imgWeb" alt="ASTRONAUTA">
+                        </div>
+
+                        <!-- DIV CON EL GITHUB REPO PRACTICA RELECLOUD 1 - ISW2 -->
+                        <div class="mt-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h2 class="textoRepo text-center">REPOSITORIO GITHUB</h2>
+                                    <hr>
+                                    <h4 class="text-center">EL REPOSITORIO DE LA PARACTICA 1 DE DJANGO DE INGENIERIA DEL SOFTWARE II SE ENCUENTRA AQUI:</h4>
+                                    <a href="https://github.com/VSXR/relecloud" class="enlaceRepo">ENLACE AL REPOSITORIO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            {% endblock main_contents %}
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="footerContainer sticky-footer mt-auto py-3 text-white">
+            <ul class="nav justify-content-center border-bottom pb-3">
+                <!-- Enlaces del pie de página -->
+                <li class="footer-nav-item active">
+                    <a href="{% url 'index' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="fa-solid fa-house"></i> HOME
+                    </a>
+                </li>
+                <li class="footer-nav-item active">
+                    <a href="{% url 'info_request' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="fa-solid fa-phone"></i> REQUEST INFORMATION
+                    </a>
+                </li>
+                <li class="footer-nav-item active">
+                    <a href="{% url 'destinations' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="ri-hourglass-2-line"></i> DESTINATIONS
+                    </a>
+                </li>
+                <li class="footer-nav-item active">
+                    <a href="{% url 'about' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="fa-solid fa-question"></i> ABOUT
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Texto de derechos de autor -->
+            <div class="footerAuthorText text-center mt-3">
+                <div class="madeContainer">
+                    <p>© 2024 RELECLOUD. All rights reserved.</p>
+                </div>
+                <div class="madeContainer">
+                    <a href="https://github.com/VSXR" class="madeBy">- MADE BY VSXR -</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script async src="https://www.instagram.com/embed.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>

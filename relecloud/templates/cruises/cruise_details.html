@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - CRUISE DETAILS
+{% endblock %}
+
+{% block main_contents %}
+    <div class="destinationsPresentation">
+        <div class="specific-paragraphs">
+            <h2>{{ cruise.name }}</h2>
+            <hr>
+            <br>
+            <p>{{ cruise.desc }}</p>
+            <br>
+            <p>PRICE: ${{ cruise.price }}</p>
+            <p>MAXIMUM CAPACITY: {{ cruise.max_capacity }}</p>
+            <p>AVAILABLE SEATS: {{ cruise.available_seats }}</p>
+        </div>
+    </div>
+
+    <div class="destinationsPresentation">
+        <div class="specific-paragraphs container-fluid">
+            <div class="average-rating-container">
+                <h3>AVERAGE RATING: {{ average_rating|floatformat:2 }} STARS</h3>
+            </div>
+            <br>
+
+            <div class="card">
+                <div class="card-header text-center">
+                    <br>
+                    <h4>REVIEWS</h4>
+                    <p>TOTAL REVIEWS: {{ reviews|length }} REVIEWS</p>
+                </div>
+                <div class="card-body">
+                    {% if reviews %}
+                        <ul class="person-review text-left list-group list-group-flush">
+                            {% for review in reviews|slice:":5"  %}
+                                <li class="text-left">
+                                    <div class="review-item text-left">
+                                        <strong>{{ review.name }}</strong> - {{ review.rating }} STARS
+                                        <br>
+                                        {{ review.comment }}
+                                    </div>
+                                </li>
+                                <hr>
+                            {% endfor %}
+                        </ul>
+                        <br>
+                        <div class="text-center">
+                            <a href="{% url 'cruise_view_reviews' cruise.pk %}" class="btn btn-primary">VIEW ALL CRUISE REVIEWS</a>
+                            <a href="{% url 'cruise_create_reviews' cruise.pk %}" class="btn btn-primary">LEAVE A CRUISE REVIEW</a>
+                        </div>
+                    {% else %}
+                        <p class="text-center">OH NO... THERE ARE NO REVIEWS AVAILABLE!</p>
+                        <div class="text-center">
+                            <a href="{% url 'cruise_create_reviews' cruise.pk %}" class="btn btn-primary">LEAVE A CRUISE REVIEW</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+
+            <p class="text-center">You can explore {{ cruise.name }} on the following destinations:</p>
+            <ul class="list-group">
+                {% for destination in cruise.destinations.all %}
+                    <li class="list-group-item">
+                        <a class="view-cruise-btn btn list-group-item list-group-item-action" href="{% url 'destination_details' destination.pk %}"> {{ destination.name }} </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock main_contents %}

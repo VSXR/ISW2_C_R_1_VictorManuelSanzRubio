@@ -29,7 +29,7 @@ opentelemetry-instrumentation-fastapi==0.48b0
 opentelemetry-instrumentation-flask==0.48b0
 opentelemetry-instrumentation-psycopg2==0.48b0
 opentelemetry-instrumentation-requests==0.48b0
-opentelemetry-instrumentation-urllib==0.48b0
+opentelemetry-instrumentation-urllib==0.59b0
 opentelemetry-instrumentation-urllib3==0.48b0
 opentelemetry-instrumentation-wsgi==0.48b0
 opentelemetry-resource-detector-azure==0.1.5

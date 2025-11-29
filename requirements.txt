@@ -10,7 +10,7 @@ crispy-bootstrap4==2024.1
 csrf==0.1b1
 Deprecated==1.2.14
 Django==5.1.1
-django-crispy-forms==2.3
+django-crispy-forms==2.5
 fixedint==0.1.6
 flake8==7.3.0
 idna==3.10

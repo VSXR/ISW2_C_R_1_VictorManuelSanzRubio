@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    RELECLOUD - LEAVE A CRUISE REVIEW
+{% endblock title %}
+
+{% block main_contents %}
+    <h2>LEAVE A CRUISE REVIEW FOR {{ cruise.name }}</h2>
+    <p>
+        Fill out the form below to create a review for the selected cruise:
+    </p>
+    <div class="specific-paragraphs container-fluid">
+        <form method="post" action="{% url 'cruise_create_reviews' cruise.pk %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <a href="{% url 'cruise_details' cruise.pk %}" class="btn btn-secondary">CANCEL</a>
+            <button type="submit" class="btn btn-primary">SUBMIT</button>
+        </form>
+    </div>
+{% endblock main_contents %}

@@ -6,7 +6,7 @@ azure-monitor-opentelemetry-exporter==1.0.0b30
 certifi==2024.8.30
 charset-normalizer==3.3.2
 colorama==0.4.6
-crispy-bootstrap4==2024.1
+crispy-bootstrap4==2025.6
 csrf==0.1b1
 Deprecated==1.2.14
 Django==5.1.1

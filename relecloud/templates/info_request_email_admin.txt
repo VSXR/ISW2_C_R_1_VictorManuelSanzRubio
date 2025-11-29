@@ -1,0 +1,12 @@
+Ha recibido una nueva solicitud de información.
+
+Detalles:
+--------------------
+Nombre: {{ name }}
+Email: {{ email }}
+Teléfono: {{ phone }}
+--------------------
+Crucero: {{ cruise }}
+--------------------
+Mensaje:
+{{ message }}

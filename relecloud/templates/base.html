@@ -1,0 +1,273 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            {% block title %}
+                RELECLOUD - EXPAND YOUR HORIZONS
+            {% endblock title %}
+        </title>
+        
+        <link rel="stylesheet" href="{% static 'res/css/styles.css' %}">
+        <link rel="icon" href="{% static 'res/img/favicon/favicon.ico' %}" type="image/x-icon">
+
+        <!-- Estilos y fuentes -->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    </head>
+
+    <body>
+        <!-- Encabezado -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <div class="logo-container">
+                        <a class="navbar-brand navLogo" href="{% url 'index' %}">
+                            <img src="{% static 'res/img/logo/tabler--north-star.png' %}" alt="Relecloud Star Logo" />
+                        </a>
+                        <a class="navbar-brand navName abs" href="{% url 'index' %}">RELECLOUD</a>
+                    </div>
+                    <!-- Botón de navegación para pantallas pequeñas -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menú de navegación -->
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
+                            <!-- Enlaces principales -->
+                            <li class="nav-item active">
+                                <a href="{% url 'info_request' %}" class="nav-link custom-underline active" aria-current="page">
+                                    <i class="fa-solid fa-phone"></i> REQUEST INFORMATION
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a href="{% url 'destinations' %}" class="nav-link custom-underline active" aria-current="page">
+                                    <i class="ri-hourglass-2-line"></i> DESTINATIONS
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a href="{% url 'about' %}" class="nav-link custom-underline active" aria-current="page">
+                                    <i class="fa-solid fa-question"></i> ABOUT
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Enlaces de autenticación -->
+                        <ul class="navbar-nav ms-auto">
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+
+                        <!-- Enlaces sociales -->
+                        <ul class="navbar-nav ms-auto">
+                            <div class="nav-item social">
+                                <a class="nav-item" href="https://github.com/VSXR" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Mensajes -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- MAIN -->
+        <main class="container-fluid mt-4">
+            {% block main_contents %}
+                <!-- Contenedor principal -->
+                <div class="container-fluid">
+                    
+                    <!-- CONTENIDO PRINCIPAL -->
+                    <section class="mainContent container-fluid">
+                        <h2 class="text-center mb-4">WELCOME TO RELECLOUD</h2>
+
+                        <div class="specific-paragraphs mb-4">
+                            <p class="text-center">
+                                RELECLOUD is a space travel company founded in 2024, offering premium interstellar journeys for explorers, families, and adventurers. Our fleet features state-of-the-art ships, experienced crew, and a commitment to safety and comfort.
+                            </p>
+                            <div class="image-container text-center mb-3">
+                                <img src="{% static 'res/img/media/ASTRONAUTA.jpg' %}" class="imgWeb" alt="ASTRONAUTA">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-header text-center">
+                                        <h4>Why Choose Relecloud?</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul>
+                                            <li>Modern spacecraft with luxury amenities</li>
+                                            <li>Expert pilots and multilingual crew</li>
+                                            <li>Customizable travel packages</li>
+                                            <li>Exclusive destinations across the galaxy</li>
+                                            <li>24/7 customer support</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-header text-center">
+                                        <h4>Our Destinations</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>
+                                            Explore breathtaking locations such as:
+                                        </p>
+                                        <ul>
+                                            <li>Mars Luxury Resorts</li>
+                                            <li>Jupiter Moon Cruises</li>
+                                            <li>Saturn Ring Expeditions</li>
+                                            <li>Deep Space Adventure Tours</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4>Customer Testimonials</h4>
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote text-center">
+                                    <p>"An unforgettable journey! The crew made us feel safe and comfortable every step of the way." <br><small>- Ana G.</small></p>
+                                </blockquote>
+                                <blockquote class="blockquote text-center">
+                                    <p>"Relecloud's Mars resort was beyond our expectations. Highly recommended!" <br><small>- Luis P.</small></p>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header text-center">
+                                <h4>How to Book</h4>
+                            </div>
+                            <div class="card-body">
+                                <ol>
+                                    <li>Browse our <a href="{% url 'destinations' %}">Destinations</a> page.</li>
+                                    <li>Request more information via our <a href="{% url 'info_request' %}">Contact Form</a>.</li>
+                                    <li>Register and log in to manage your bookings.</li>
+                                    <li>Enjoy your space adventure!</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="{% url 'about' %}" class="btn mx-2" style="background-color: #3a3f58; color: #fff; border: none;">
+                                Learn More About Us
+                            </a>
+                            <a href="{% url 'info_request' %}" class="btn mx-2" style="background-color: #1e88e5; color: #fff; border: none;">
+                                Request Information
+                            </a>
+                        </div>
+
+                        <!-- SECCIÓN DE GENERAR REVIEWS -->
+                        <div class="container-fluid mt-5">
+                            <div class="card w-100">
+                                <div class="card-header text-center">
+                                    <h3>GENERATE REVIEWS</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="specific-paragraphs">
+                                        <p class="text-center">
+                                            To generate reviews, destinations and cruises, please <strong>insert in the terminal</strong> the following commands (dont worry if takes a while, it is normal):
+                                        </p>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item text-center">
+                                                <strong>GENERATE REVIEWS, DESTINATIONS AND CRUISES :</strong> <code>python populate_db.py</code>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CONTENEDOR CON EL GITHUB REPO PRACTICA RELECLOUD 1 - ISW2 -->
+                        <div class="container-fluid mt-4">
+                            <div class="card w-100 specific-paragraphs">
+                                <div class="card-body text-center">
+                                    <h3 class="text-center">REPOSITORIO GITHUB</h3>
+                                    <hr>
+                                    <h4 class="text-center">EL REPOSITORIO DE LA PRÁCTICA 1 DE DJANGO DE INGENIERÍA DEL SOFTWARE II SE ENCUENTRA AQUÍ:</h4>
+                                    <a href="https://github.com/VSXR/relecloud" class="enlaceRepo btn btn-primary mt-3">ENLACE AL REPOSITORIO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            {% endblock main_contents %}
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="footerContainer sticky-footer mt-auto py-3 text-white">
+            <ul class="nav justify-content-center border-bottom pb-3">
+                <!-- Enlaces del pie de página -->
+                <li class="footer-nav-item active">
+                    <a href="{% url 'index' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="fa-solid fa-house"></i> HOME
+                    </a>
+                </li>
+                <li class="footer-nav-item active">
+                    <a href="{% url 'info_request' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="fa-solid fa-phone"></i> REQUEST INFORMATION
+                    </a>
+                </li>
+                <li class="footer-nav-item active">
+                    <a href="{% url 'destinations' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="ri-hourglass-2-line"></i> DESTINATIONS
+                    </a>
+                </li>
+                <li class="footer-nav-item active">
+                    <a href="{% url 'about' %}" class="footer-nav-link custom-underline active" aria-current="page">
+                        <i class="fa-solid fa-question"></i> ABOUT
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Texto de derechos de autor -->
+            <div class="footerAuthorText text-center mt-3">
+                <div class="madeContainer">
+                    <p>© 2025 RELECLOUD. All rights reserved.</p>
+                </div>
+                <div class="madeContainer">
+                    <a href="https://github.com/VSXR" class="madeBy">- MADE BY VSXR -</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script async src="https://www.instagram.com/embed.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - ABOUT US
+{% endblock %}
+
+{% block main_contents %}
+    <h2>ABOUT RELECLOUD</h2>
+
+    <div class="specific-paragraphs">
+        <p>
+            RELECLOUD is a space travel company founded in 2024, that offers the best services to its customers. We have the best ships and the best crew to 
+            make your trip an unforgettable experience. We have the best prices and the best destinations. We are the best 
+            option for your space travel.
+        </p>
+        <div class="image-container">
+            <img src="{% static 'res/img/media/rocket.jpg' %}" class="imgWeb" alt="SPACE ROCKET">
+        </div>
+    </div>
+
+    <section class="about-cards" style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; margin:3rem 0;">
+        <div class="about-card" style="background:#fff; border-radius:1rem; box-shadow:0 2px 8px rgba(30,60,114,0.08); padding:2rem; flex:1 1 300px; min-width:280px; max-width:350px;">
+            <h3 style="display:flex; align-items:center; gap:0.5rem;">
+                <span style="font-size:1.5rem;">🏢</span> Our Company
+            </h3>
+            <hr>
+            <p>
+                We deliver unparalleled service with a fleet of advanced ships and a professional crew. Attractive pricing and exceptional destinations make us the leading choice for space travel.
+            </p>
+        </div>
+        <div class="about-card" style="background:#fff; border-radius:1rem; box-shadow:0 2px 8px rgba(30,60,114,0.08); padding:2rem; flex:1 1 300px; min-width:280px; max-width:350px;">
+            <h3 style="display:flex; align-items:center; gap:0.5rem;">
+                <span style="font-size:1.5rem;">🚀</span> Our Mission
+            </h3>
+            <hr>
+            <p>
+                To create the ultimate space travel experience. We offer top-notch service, advanced ships, and a dedicated crew, ensuring your journey is truly memorable.
+            </p>
+        </div>
+        <div class="about-card" style="background:#fff; border-radius:1rem; box-shadow:0 2px 8px rgba(30,60,114,0.08); padding:2rem; flex:1 1 300px; min-width:280px; max-width:350px;">
+            <h3 style="display:flex; align-items:center; gap:0.5rem;">
+                <span style="font-size:1.5rem;">🌌</span> Our Vision
+            </h3>
+            <hr>
+            <p>
+                To become the world's leading space travel company, providing outstanding service, modern ships, and a highly trained crew for unforgettable experiences.
+            </p>
+        </div>
+    </section>
+{% endblock main_contents %}

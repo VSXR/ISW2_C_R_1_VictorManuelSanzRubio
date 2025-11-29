@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - EXPAND YOUR HORIZONS
+{% endblock %}
+
+{% comment %} PONER MISMO NOMBRE QUE EL BLOQUE MAIN (mainContent) PARA ENLAZARLO CON EL MAIN DE INDEX, ABOUT... {% endcomment %}
+{% block main_contents %} 
+    <!-- Contenedor principal -->
+    <div class="container-fluid">
+        
+        <!-- CONTENIDO PRINCIPAL -->
+        <section class="mainContent container-fluid">
+            <h2 class="text-center mb-4">WELCOME TO RELECLOUD</h2>
+
+            <div class="specific-paragraphs mb-4">
+                <p class="text-center">
+                    RELECLOUD is a space travel company founded in 2024, offering premium interstellar journeys for explorers, families, and adventurers. Our fleet features state-of-the-art ships, experienced crew, and a commitment to safety and comfort.
+                </p>
+                <div class="image-container text-center mb-3">
+                    <img src="{% static 'res/img/media/ASTRONAUTA.jpg' %}" class="imgWeb" alt="ASTRONAUTA">
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header text-center">
+                            <h4>Why Choose Relecloud?</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Modern spacecraft with luxury amenities</li>
+                                <li>Expert pilots and multilingual crew</li>
+                                <li>Customizable travel packages</li>
+                                <li>Exclusive destinations across the galaxy</li>
+                                <li>24/7 customer support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header text-center">
+                            <h4>Our Destinations</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                Explore breathtaking locations such as:
+                            </p>
+                            <ul>
+                                <li>Mars Luxury Resorts</li>
+                                <li>Jupiter Moon Cruises</li>
+                                <li>Saturn Ring Expeditions</li>
+                                <li>Deep Space Adventure Tours</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h4>Customer Testimonials</h4>
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote text-center">
+                        <p>"An unforgettable journey! The crew made us feel safe and comfortable every step of the way." <br><small>- Ana G.</small></p>
+                    </blockquote>
+                    <blockquote class="blockquote text-center">
+                        <p>"Relecloud's Mars resort was beyond our expectations. Highly recommended!" <br><small>- Luis P.</small></p>
+                    </blockquote>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header text-center">
+                    <h4>How to Book</h4>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li>Browse our <a href="{% url 'destinations' %}">Destinations</a> page.</li>
+                        <li>Request more information via our <a href="{% url 'info_request' %}">Contact Form</a>.</li>
+                        <li>Register and log in to manage your bookings.</li>
+                        <li>Enjoy your space adventure!</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{% url 'about' %}" class="btn mx-2" style="background-color: #3a3f58; color: #fff; border: none;">
+                    Learn More About Us
+                </a>
+                <a href="{% url 'info_request' %}" class="btn mx-2" style="background-color: #1e88e5; color: #fff; border: none;">
+                    Request Information
+                </a>
+            </div>
+
+            {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                    
+                    <!-- SECCIÓN DE GENERAR REVIEWS -->
+                    <div class="container-fluid mt-5">
+                        <div class="card w-100">
+                            <div class="card-header text-center">
+                                <h3>GENERATE REVIEWS</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="specific-paragraphs">
+                                    <p class="text-center">
+                                        To generate reviews, destinations and cruises, please <strong>insert in the terminal</strong> the following commands (dont worry if takes a while, it is normal):
+                                    </p>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item text-center">
+                                            <strong>GENERATE REVIEWS, DESTINATIONS AND CRUISES :</strong> <code>python populate_db.py</code>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTENEDOR CON EL GITHUB REPO PRACTICA RELECLOUD 1 - ISW2 -->
+                    <div class="container-fluid mt-4">
+                        <div class="card w-100 specific-paragraphs">
+                            <div class="card-body text-center">
+                                <h3 class="text-center">REPOSITORIO GITHUB</h3>
+                                <hr>
+                                <h4 class="text-center">EL REPOSITORIO DE LA PRÁCTICA 1 DE DJANGO DE INGENIERÍA DEL SOFTWARE II SE ENCUENTRA AQUÍ:</h4>
+                                <a href="https://github.com/VSXR/relecloud" class="enlaceRepo btn btn-primary mt-3">ENLACE AL REPOSITORIO</a>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- CONTENEDOR CON EL GITHUB REPO PRACTICA RELECLOUD 1 - ISW2 -->
+                    <div class="container-fluid mt-4">
+                        <div class="card w-100 specific-paragraphs">
+                            <div class="card-body text-center">
+                                <h3 class="text-center">REPOSITORIO GITHUB</h3>
+                                <hr>
+                                <h4 class="text-center">EL REPOSITORIO DE LA PRÁCTICA 1 DE DJANGO DE INGENIERÍA DEL SOFTWARE II SE ENCUENTRA AQUÍ:</h4>
+                                <a href="https://github.com/VSXR/relecloud" class="enlaceRepo btn btn-primary mt-3">ENLACE AL REPOSITORIO</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </section>
+    </div>
+{% endblock main_contents %}

@@ -4,4 +4,4 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit:   # Limita el número de PRs abiertos por Dependabot
+    open-pull-requests-limit: 10  # Limita el número de PRs abiertas a 10 que Dependabot puede crear

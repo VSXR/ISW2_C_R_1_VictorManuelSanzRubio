@@ -36,7 +36,6 @@ h2 {
     text-align: center;
     font-size: 1.8em;
     font-weight: bold, 500;
-
 }
 h3 {
     margin-top: 30px;
@@ -59,7 +58,6 @@ h4 {
     padding: 20px;
     border: 1px solid #dee2e6;
     border-radius: 5px;
-    margin-bottom: 30px;
     margin-bottom: 30px;
 }
 
@@ -154,7 +152,6 @@ ul.messages li.error {
     position: relative; /* IMPORTANTE POSICIONAR PSEUDO-ELEMENTO! */
 }
 
-
 .nav-item.social {
     font-size: 20px;
     opacity: 1;
@@ -197,7 +194,6 @@ main {
     margin-bottom: 10px;
     overflow: hidden;
 }
-
 
 /* CONTAINERS IN MAIN */
 .col-lg-8 {
@@ -243,12 +239,9 @@ main {
     justify-content: center;
     margin-top: 40px;
     margin-bottom: 40px;
-
 }
 
 /*-----------------*/
-
-
 
 /* IMAGENES */
 .imgWeb {
@@ -261,6 +254,67 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* MIRAR!! */
+.destination-img {
+    width: 350px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* FLEXBOX PARA CARDS DE DESTINOS */
+.podium .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.podium .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 420px; /* Ajusta según el contenido */
+    padding-bottom: 20px;
+}
+
+/* Para las cards de "ver todos los destinos" */
+.card.h-100 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 420px;
+}
+
+/*-----------------*/
+
+.destinationImage {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: cover;
+    border: #000000 3px solid;
+    border-radius: 3px;
+    margin: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Media query para pantallas de 641px de ancho y mayores */
+@media (min-width: 641px) {
+    .destinationImage {
+        width: 300px;
+        height: 200px; 
+    }
+}
+
+/*-----------------*/
 
 /* FORMULARIOS DE REQUESTS */
 
@@ -276,11 +330,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ESTILO PARA CONTENEDOR (TEXTO Y ENLACE DEL REPOSITORIO DE LA PRACTICA FINAL DE DESARROLLO WEB) */
-.textoRepo{
-    font-size: medium;
-}
-
+/* ESTILOS CONTENEDOR REPO */
 .enlaceRepo {
     border: black 2px solid;
     border-radius: 0%;
@@ -396,7 +446,6 @@ footer {
     }
 }
 
-
 /* iPad Mini (Vertical) */
 @media only screen and (min-width: 394px) and (max-width: 768px) and (min-height: 851px) and (max-height: 1024px) {
     h1 {
@@ -505,7 +554,6 @@ footer {
         height: auto;
     }
 
-        
     .navName {
         font-size: 40px;
     }

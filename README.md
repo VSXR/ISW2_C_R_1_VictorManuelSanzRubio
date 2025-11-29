@@ -1,4 +1,4 @@
-# RELECLOUD ISW2
+# RELECLOUD ISW2 2025
 
 > [!IMPORTANT]  
 > *¡OJO SIGA LOS SIGUIENTES PASOS ANTES DE INICIAR LA APLICACION "RELECLOUD"!*
@@ -24,13 +24,11 @@
 
 ## Table of Contents
 
-- [RELECLOUD ISW2](#relecloud-isw2)
+- [RELECLOUD ISW2 2025](#relecloud-isw2-2025)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
 
 ## Introduction
 
@@ -64,11 +62,3 @@ To get started with the Relecloud project, follow these steps:
 ## Usage
 
 Once the development server is running, you can access the application at `http://127.0.0.1:8000/`. Explore the features and customize the project as needed.
-
-## Contributing
-
-We welcome contributions to the Relecloud project. If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

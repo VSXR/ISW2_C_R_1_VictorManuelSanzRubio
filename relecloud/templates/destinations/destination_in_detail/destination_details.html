@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - DESTINATION DETAILS
+{% endblock title %}
+
+{% block main_contents %}
+    <div class="destinationsPresentation">
+        <div class="specific-paragraphs">
+            <h2>{{ destination.name }}</h2>
+            <br>
+            <div class="image-container text-center">
+                <img src="{{ destination.image_url }}" alt="{{ destination.name }}" class="img-fluid destination-img">
+            </div>
+            <br>
+            <p>{{ destination.desc }}</p>
+        </div>
+    </div>
+
+    <div class="destinationsPresentation">
+        <div class="specific-paragraphs container-fluid">
+            <div class="average-rating-container">
+                <h3>AVERAGE RATING: {{ average_rating|floatformat:2 }} STARS</h3>
+            </div>
+            <br>
+
+            <div class="card">
+                <div class="card-header text-center">
+                    <br>
+                    <h4>REVIEWS</h4>
+                    <p>TOTAL REVIEWS: {{ reviews|length }} REVIEWS</p>
+                </div>
+                <div class="card-body">
+                    {% if reviews %}
+                        <ul class="person-review text-left list-group list-group-flush">
+                            {% for review in reviews|slice:":5" %}
+                                <li class="text-left">
+                                    <div class="review-item text-left">
+                                        <strong>{{ review.name }}</strong> - {{ review.rating }} STARS
+                                        <br>
+                                        {{ review.comment }}
+                                        <hr>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <div class="text-center mt-3">
+                            <a href="{% url 'destination_view_reviews' destination.pk %}" class="btn btn-primary">VIEW ALL DESTINATION REVIEWS</a>
+                            
+                            {% if user.is_authenticated %}
+                                {% if has_purchased %}
+                                    <a href="{% url 'destination_create_reviews' destination.pk %}" class="btn btn-primary">LEAVE A REVIEW</a>
+                                {% else %}
+                                    <a href="{% url 'purchase_destination' destination.pk %}" class="btn btn-success">PURCHASE THIS TRIP</a>
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-info">Login to Purchase or Review</a>
+                            {% endif %}
+                            </div>
+                    {% else %}
+                        <p class="text-center">OH NO... THERE ARE NO REVIEWS AVAILABLE!</p>
+                        
+                        <div class="text-center mt-3">
+                            {% if user.is_authenticated %}
+                                {% if has_purchased %}
+                                    <a href="{% url 'destination_create_reviews' destination.pk %}" class="btn btn-primary">BE THE FIRST TO LEAVE A REVIEW</a>
+                                {% else %}
+                                    <a href="{% url 'purchase_destination' destination.pk %}" class="btn btn-success">PURCHASE THIS TRIP</a>
+                                {% endif %}
+                            {% else %}
+                                <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-info">Login to Purchase</a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                </div>
+            </div>
+            <br>
+            
+            {% comment %} BOTONES USO ADMIN {% endcomment %}
+            {% if user.is_staff %}
+                <div class="text-center" aria-label="Destination Actions">
+                    <a href="{% url 'destination_confirm_edit' destination.pk %}" class="btn btn-primary">EDIT DESTINATION</a>
+                    <a href="{% url 'destination_confirm_delete' destination.pk %}" class="btn btn-danger">DELETE DESTINATION</a>
+                </div>
+            {% endif %}
+            <br>
+            
+            <p class="text-center">You can explore {{ destination.name }} on the following cruises:</p>
+            <ul class="list-group">
+                {% for cruise in destination.cruises.all %}
+                    <li class="list-group-item">
+                        <a class="view-cruise-btn btn list-group-item list-group-item-action" href="{% url 'cruise_details' cruise.pk %}"> {{ cruise.name }} </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock main_contents %}

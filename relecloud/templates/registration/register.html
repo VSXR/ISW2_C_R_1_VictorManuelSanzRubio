@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}RELECLOUD - REGISTER{% endblock title %}
+
+{% block main_contents %}
+    <h2>Register</h2>
+    <div class="specific-paragraphs container-fluid">
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <br>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Create account</button>
+                <a href="{% url 'login' %}" class="btn btn-secondary">Back to login</a>
+            </div>
+        </form>
+    </div>
+{% endblock main_contents %}

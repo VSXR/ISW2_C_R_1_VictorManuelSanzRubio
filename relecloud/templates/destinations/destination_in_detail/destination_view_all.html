@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - VIEW ALL DESTINATIONS
+{% endblock title %}
+
+{% block main_contents %}
+    <h2>ALL OF OUR DESTINATIONS</h2>
+
+    <div class="container mt-4">
+        <div class="destinationsPresentation text-center">
+            <p class="lead">Explore our full list of destinations below:</p>
+            <div class="row">
+                {% for destination in destinations %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="{{ destination.image_url }}" alt="{{ destination.name }}" class="card-img-top img-fluid destination-img">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ destination.name }}</h5>
+                                <a href="{% url 'destination_details' destination.id %}" class="btn btn-primary">SHOW MORE DETAILS OF THE DESTINATION</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        {% comment %} BOTON PARA VOLVER A LA PAGINA DESTINATIONS {% endcomment %}
+        <div class="text-center mt-4">
+            <a href="{% url 'destinations' %}" class="btn btn-secondary">BACK TO DESTINATIONS PAGE</a>
+        </div>
+        <br>
+    </div>
+{% endblock main_contents %}

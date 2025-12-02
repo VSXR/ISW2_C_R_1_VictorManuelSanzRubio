@@ -1,28 +1,26 @@
-# Python to Linux Web App on Azure
-# Build your Python project and deploy it to Azure as a Linux Web App.
-# Change python version to one thats appropriate for your application.
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- develop
+- master
 
 variables:
-  # Azure Resource Manager connection created during pipeline creation
+  # Azure Resource Manager connection
   azureServiceConnectionId: '94edd487-1081-4af5-839e-e0c7d3865468'
 
   # Web app name
   webAppName: 'relecloud-web'
 
-  # Agent VM image name
+  # Agent VM image
   vmImageName: 'ubuntu-latest'
 
   # Environment name
   environmentName: 'relecloud-web'
 
-  # Project root folder. Point to the folder containing manage.py file.
+  # Project root folder
   projectRoot: $(System.DefaultWorkingDirectory)
 
-  pythonVersion: '3.11'
+  # Updated Python version
+  pythonVersion: '3.12'
 
 stages:
 - stage: Build
@@ -32,6 +30,7 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+
     - task: UsePythonVersion@0
       inputs:
         versionSpec: '$(pythonVersion)'
@@ -41,7 +40,6 @@ stages:
         python -m venv antenv
         source antenv/bin/activate
         python -m pip install --upgrade pip
-        pip install setup
         pip install -r requirements.txt
       workingDirectory: $(projectRoot)
       displayName: "Install requirements"
@@ -79,7 +77,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : relecloud-web'
+            displayName: 'Deploy Azure Web App : $(webAppName)'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)

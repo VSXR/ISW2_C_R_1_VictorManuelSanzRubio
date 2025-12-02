@@ -1,7 +1,20 @@
+# Entornos virtuales
 .venv/
+
+# Configuración del editor
 .vscode/
 
+# Archivos de Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+# Django
+*.log
+*.pot
+local_settings.py
+db.sqlite3
+
+# Archivos generados
+staticfiles/

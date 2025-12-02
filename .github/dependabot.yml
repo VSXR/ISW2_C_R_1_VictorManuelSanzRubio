@@ -1,0 +1,12 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/ISW2_C_R_1_VictorManuelSanzRubio"
+    target-branch: "develop" # Las actualizaciones van a desarrollo, no a producción
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      dependencies:
+        patterns:
+          - "*"

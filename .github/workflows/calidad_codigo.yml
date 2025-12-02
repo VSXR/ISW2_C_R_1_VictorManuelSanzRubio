@@ -10,14 +10,21 @@ on:
 jobs:
   verificacion:
     runs-on: ubuntu-latest
+    
+    # Definimos el directorio de trabajo por defecto para todos los 'run'
+    defaults:
+      run:
+        working-directory: ./ISW2_C_R_1_VictorManuelSanzRubio
+
     steps:
       - name: Checkout del código
         uses: actions/checkout@v4
 
-      - name: Configurar Python 3.11
+      - name: Configurar Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
+          cache: 'pip' # Activa el caché de pip para acelerar la ejecución
 
       - name: Instalar dependencias
         run: |
@@ -26,11 +33,11 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Analizar código (Linting)
-        run: flake8
+        run: flake8 .
 
       - name: Ejecutar Tests de Django
         env:
-          # Forzamos DEBUG a True para que use SQLite en los tests en lugar de la BBDD de producción
+          # Forzamos DEBUG a True para que use SQLite en los tests
           DEBUG: 'True'
         run: |
           python manage.py test

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    RELECLOUD - VIEW ALL DESTINATION REVIEWS
+{% endblock title %}
+
+{% block main_contents %}
+    <div class="destinationsPresentation">
+        <div class="specific-paragraphs">
+            <h2>VIEW ALL REVIEWS FOR {{ destination.name }}</h2>
+            <br>
+            <div class="average-rating-container">
+                <h3>AVERAGE RATING: {{ average_rating|floatformat:2 }} STARS</h3>
+            </div>
+            <br>
+            <div class="card">
+                <div class="card-header text-center">
+                    <br>
+                    <h4>REVIEWS</h4>
+                    <p>TOTAL REVIEWS: {{ reviews|length }} REVIEWS</p>
+                </div>
+                <div class="card-body">
+                    {% if reviews %}
+                        <ul class="person-review text-left list-group list-group-flush">
+                            {% for review in reviews %}
+                                <li class="text-left">
+                                    <div class="review-item text-left">
+                                        <strong>{{ review.name }}</strong> - {{ review.rating }} STARS
+                                        <br>
+                                        {{ review.comment }}
+                                    </div>
+                                    <hr>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-left">OH... THERE ARE NO DESTINATION REVIEWS AVAILABLE!</p>
+                    {% endif %}
+                </div>
+                <br>
+                <div class="text-center mb-4">
+                    <a href="{% url 'destination_details' destination.pk %}" class="btn btn-secondary">BACK TO THE DESTINATION DETAILS</a>
+                    <a href="{% url 'destination_create_reviews' destination.pk %}" class="btn btn-primary">LEAVE A REVIEW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main_contents %}

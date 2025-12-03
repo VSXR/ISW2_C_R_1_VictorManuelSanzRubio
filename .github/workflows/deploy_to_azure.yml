@@ -1,0 +1,83 @@
+name: Deploy Django to Azure Web App
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: 'relecloud-web'
+  PYTHON_VERSION: '3.12'
+  PROJECT_PATH: '.'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python version
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+      
+      - name: Install dependencies
+        run: |
+          source venv/bin/activate
+          pip install -r ${{ env.PROJECT_PATH }}/requirements.txt
+          pip install gunicorn  # Necesario para producción
+          
+      # Opcional: Ejecutar tests
+      # - name: Run Tests
+      #   run: |
+      #     source venv/bin/activate
+      #     cd ${{ env.PROJECT_PATH }}
+      #     python manage.py test
+
+      - name: Collect Static Files
+        run: |
+          source venv/bin/activate
+          cd ${{ env.PROJECT_PATH }}
+          python manage.py collectstatic --noinput
+
+      - name: Zip artifact for deployment
+        run: |
+          cd ${{ env.PROJECT_PATH }}
+          zip -r release.zip ./* 
+        
+      - name: Upload artifact for deployment jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-app
+          path: release.zip
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: python-app
+
+      - name: Unzip artifact
+        run: unzip release.zip
+
+      - name: 'Deploy to Azure Web App'
+        uses: azure/webapps-deploy@v3
+        id: deploy-to-webapp
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: '.'

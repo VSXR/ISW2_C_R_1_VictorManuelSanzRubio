@@ -16,8 +16,8 @@ variables:
   # Environment name
   environmentName: 'relecloud-web'
 
-  # Project root folder
-  projectRoot: $(System.DefaultWorkingDirectory)
+  # IMPORTANTE: Definir la ruta de la subcarpeta donde está el código
+  projectRoot: $(System.DefaultWorkingDirectory)/ISW2_C_R_1_VictorManuelSanzRubio
 
   # Updated Python version
   pythonVersion: '3.12'
@@ -36,6 +36,7 @@ stages:
         versionSpec: '$(pythonVersion)'
       displayName: 'Use Python $(pythonVersion)'
 
+    # Aquí usamos 'workingDirectory' para que los comandos se ejecuten dentro de la subcarpeta
     - script: |
         python -m venv antenv
         source antenv/bin/activate
@@ -47,8 +48,9 @@ stages:
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
+        # Archivamos SOLO el contenido de la subcarpeta del proyecto
         rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
+        includeRootFolder: false  # IMPORTANTE: false para que manage.py quede en la raíz del ZIP
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
         replaceExistingArchive: true
@@ -82,3 +84,5 @@ stages:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
               package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+              # Opcional: Comando de inicio explícito si Azure no detecta la app automáticamente
+              # startUpCommand: 'gunicorn --bind=0.0.0.0 --timeout 600 project.wsgi'

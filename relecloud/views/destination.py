@@ -85,6 +85,8 @@ class DestinationReviewCreate(LoginRequiredMixin, SuccessMessageMixin, generic.C
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['destination'] = self.destination
+        context['item'] = self.destination
+        context['item_type'] = 'destination'
         return context
 
     def form_valid(self, form):

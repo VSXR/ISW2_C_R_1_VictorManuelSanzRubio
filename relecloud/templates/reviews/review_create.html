@@ -7,16 +7,16 @@
 {% endblock title %}
 
 {% block main_contents %}
-    <h2>LEAVE A REVIEW FOR {{ destination.name }}</h2>
+    <h2>LEAVE A REVIEW FOR {{ item.name }}</h2>
     <p>
-        Fill out the form below to create a review for the selected destination:
+        Fill out the form below to create a review for the selected {{ item_type }}:
     </p>
     <div class="specific-paragraphs container-fluid">
-        <form method="post" action="{% url 'destination_create_reviews' destination.pk %}">
+        <form method="post" action="{% if item_type == 'destination' %}{% url 'destination_create_reviews' item.pk %}{% else %}{% url 'cruise_create_reviews' item.pk %}{% endif %}">
             {% csrf_token %}
             {{ form|crispy }}
             <br>
-            <a href="{% url 'destination_details' destination.pk %}" class="btn btn-secondary">CANCEL</a>
+            <a href="{% if item_type == 'destination' %}{% url 'destination_details' item.pk %}{% else %}{% url 'cruise_details' item.pk %}{% endif %}" class="btn btn-secondary">CANCEL</a>
             <button type="submit" class="btn btn-primary">SUBMIT</button>
         </form>
     </div>

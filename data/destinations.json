@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Moon Base Alpha",
+        "desc": "Experience low gravity and historical Apollo sites in our primary lunar settlement. A perfect introduction to space tourism with luxury habitats.",
+        "image": "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "name": "Europa Deep Dive",
+        "desc": "Submarine expeditions under the thick ice crust of Jupiter's moon. Discover the hidden oceans and potential alien microbial life.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Europa-moon-with-margins.jpg/600px-Europa-moon-with-margins.jpg"
+    },
+    {
+        "name": "Mars Red Canyon",
+        "desc": "Hiking adventures through the Olympus Mons and the vast red dunes. This destination offers rugged exploration for the adventurous soul.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5V_M1UwwD9ASKcRGnpfcsAp_TdCa2HbLShA&s"
+    },
+    {
+        "name": "Titan Lakes",
+        "desc": "Witness the stunning rings of Saturn from the methane lakes of Titan. A cold but breathtaking view unlike anything in the solar system.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Two_Halves_of_Titan.png"
+    },
+    
+    {
+        "name": "Venus Cloud City",
+        "desc": "Float above the scorching surface of Venus in a high-altitude city. Enjoy spectacular views of the thick cloud cover and the sunlit horizon.",
+        "image": "https://images.newscientist.com/wp-content/uploads/2021/06/25205719/28-june_no-life-venus.jpg"
+    },
+    {
+        "name": "Asteroid Belt Mining Colony",
+        "desc": "Join a pioneering community in the asteroid belt, extracting valuable minerals while experiencing microgravity living.",
+        "image": "https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-1gwfy79_800fe92e.jpeg?region=0%2C0%2C1920%2C1189"
+    }
+]

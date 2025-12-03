@@ -1,0 +1,42 @@
+[
+    {
+        "name": "The Solar Grand Tour",
+        "desc": "Embark on the journey of a lifetime with The Solar Grand Tour, the ultimate expedition for the discerning traveler who wants it all. This all-inclusive luxury odyssey sweeps you across the solar system, from the historic craters of the Moon to the rusty majesty of Mars and the mysterious methane lakes of Titan. Aboard our flagship vessel, you will enjoy five-star dining, zero-gravity entertainment suites, and panoramic observation decks that offer unrivaled views of the cosmos. Whether you are watching a double sunset or gazing at the rings of Saturn, every moment is crafted for wonder and comfort. This is not just a vacation; it is a complete tour of humanity's new frontiers in one seamless, magnificent voyage."
+    },
+    {
+        "name": "Lunar Weekend Getaway",
+        "desc": "Need a break from Earth? Our Lunar Weekend Getaway is the perfect quick escape to recharge your batteries in low gravity. In just a few hours, you will leave the atmosphere behind and settle into a luxury orbital hotel with breathtaking views of the Earthrise. This package is designed for first-time space travelers or busy professionals, offering a streamlined launch process and a relaxing itinerary that fits into a standard weekend. Enjoy weightless spa treatments, moon-gazing dinners, and the quiet serenity of space before returning to your desk on Monday morning, refreshed and inspired by the new perspective only orbit can provide."
+    },
+    {
+        "name": "Apollo Heritage Experience",
+        "desc": "Step back in time and walk where legends once stood with the Apollo Heritage Experience. This exclusive VIP tour offers a profound connection to history, taking you to the preserved landing sites of the Apollo missions. Accompanied by expert historians and retired astronauts, you will visit Tranquility Base and see the original artifacts left behind by humanity's first explorers. The trip includes stays in our historical pressurized habitats, evening lectures on the golden age of spaceflight, and restricted access to conservation zones. It is a pilgrimage for history buffs and space enthusiasts alike, honoring the brave steps that paved the way for our future among the stars."
+    },
+    {
+        "name": "Red Planet Explorer",
+        "desc": "Immerse yourself in the reality of life on Mars with the Red Planet Explorer package. This three-month expedition offers a deep dive into the Martian lifestyle without the permanent commitment of colonization. You will live in the luxurious modules of the Mars Red Canyon colony, participating in real terraforming science, rover excursions across the dunes, and climbing expeditions on the foothills of Olympus Mons. Experience the camaraderie of the frontier, taste crops grown in Martian soil, and witness the stunning blue sunsets of the Red Planet. It is the perfect blend of adventure, science, and extreme tourism for the bold explorer."
+    },
+    {
+        "name": "Ice Worlds Expedition",
+        "desc": "Venture to the frozen frontiers of the outer solar system on the Ice Worlds Expedition. This cruise is dedicated to science and discovery, taking you to the icy moons of Jupiter and Saturn, including Europa and Enceladus. Board our specialized submersible crafts to explore beneath the thick ice crusts, where subsurface oceans teem with geothermal activity and potential alien life. On the surface, witness the spectacular cryovolcanoes spraying ice into the void and trek across glaciers that have existed for eons. Combining the thrill of exploration with the comfort of a high-tech research vessel, this trip offers a front-row seat to the greatest mysteries of our celestial neighborhood."
+    },
+    {
+        "name": "Venusian Sky Cruise",
+        "desc": "Discover the hidden paradise of Venus, not on its scorching surface, but high above in its temperate clouds. The Venusian Sky Cruise offers a serene voyage aboard our massive, luxury floating cities. Drift through the golden atmosphere where the temperature and pressure mimic Earth's perfect spring day. Our airships feature open-air decks protected by advanced force fields, allowing you to bask in the eternal sunlight and enjoy 'cloud-surfing' activities. With gourmet dining sourced from our aeroponic gardens and ballrooms with glass floors looking down into the depths, this is a surreal and elegant escape that redefines the concept of aviation and luxury."
+    },
+    {
+        "name": "Outer Rim Voyage",
+        "desc": "Disconnect from the noise of the inner planets and find true solitude on the Outer Rim Voyage. This long-haul journey takes you to the edge of the known system, visiting the dwarf planets Pluto and Eris. As the sun fades to a bright star in the distance, you will experience the sublime beauty of the Kuiper Belt's icy silence. Our ship is a sanctuary of peace, equipped with extensive libraries, meditation gardens, and personal observatories for deep-space stargazing. It is a voyage for the introspective traveler, offering time to think, create, and marvel at the vastness of the universe in a way few will ever experience."
+    },
+    {
+        "name": "Asteroid Belt Mining Tour",
+        "desc": "Join the cutting-edge of space industry with the Asteroid Belt Mining Tour. This unique cruise combines adventure tourism with hands-on experience in asteroid mining operations. Travel through the dense field of rocky bodies between Mars and Jupiter, visiting active mining stations where you can observe and participate in the extraction of precious metals and minerals. Learn from industry experts about the technologies driving this new frontier of resource acquisition, and even try your hand at piloting a mining drone. This tour is perfect for those interested in the future of space commerce and the exciting possibilities that lie within our solar system's vast asteroid belt."
+    },
+    {
+        "name": "Comet Chaser Expedition",
+        "desc": "Experience the thrill of chasing comets through the solar system on the Comet Chaser Expedition. This dynamic cruise follows the paths of several spectacular comets as they journey close to the sun, providing unparalleled views of their glowing comas and streaming tails. Aboard our agile spacecraft, you will have the opportunity to conduct scientific observations, capture stunning photographs, and even deploy small probes to study the cometary material up close. This expedition is designed for adventurous souls and amateur astronomers eager to witness these celestial wanderers in all their glory, making it a truly unforgettable cosmic adventure."
+    },
+    {
+        "name": "Interstellar Precursor Mission",
+        "desc": "Be part of humanity's first steps toward the stars with the Interstellar Precursor Mission. This groundbreaking cruise takes you on a journey beyond the heliosphere, the bubble of solar wind that surrounds our solar system, into interstellar space. Experience the awe of crossing this boundary and witnessing the pristine environment of the interstellar medium. Our state-of-the-art vessel is equipped with advanced scientific instruments, allowing passengers to contribute to real research on cosmic rays, magnetic fields, and interstellar particles. This mission is ideal for those with a passion for science and exploration, offering a rare opportunity to venture where few have gone before and to be part of humanity's quest to understand the universe."
+    }
+]

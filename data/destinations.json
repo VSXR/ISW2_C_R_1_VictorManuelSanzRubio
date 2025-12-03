@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Moon Base Alpha",
+        "desc": "Experience the thrill of low-gravity living at our premier lunar settlement, located near the historic Sea of Tranquility. Walk in the footsteps of the Apollo astronauts and visit the preserved landing sites that marked humanity's first steps off Earth. Our luxury habitats offer panoramic views of the 'Blue Marble' rising over the cratered horizon, providing a perspective that will change you forever. Enjoy moon-walking tours, rover expeditions to dark-side observatories, and five-star dining with ingredients grown in our own lunar greenhouses.",
+        "image": "https://images.unsplash.com/photo-1522030299830-16b8d3d049fe?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+        "name": "Europa Deep Dive",
+        "desc": "Journey beneath the thick icy crust of Jupiter's moon, Europa, into a global ocean that contains twice as much water as all of Earth's oceans combined. Board our advanced submersible vessels designed to withstand immense pressure and explore the geothermal vents teeming with potential alien microbial life. This expedition combines hard science with the thrill of the unknown, offering a glimpse into a dark, bioluminescent world that has been hidden from the sun for billions of years. It is the ultimate frontier for those seeking to answer the question: are we alone?",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Europa-moon-with-margins.jpg/600px-Europa-moon-with-margins.jpg"
+    },
+    {
+        "name": "Mars Red Canyon",
+        "desc": "Embark on a rugged adventure across the rusty dunes and towering cliffs of the Red Planet. This destination features guided hikes through the Valles Marineris, a canyon system that dwarfs the Grand Canyon, and expeditions to the base of Olympus Mons, the largest volcano in the solar system. Experience the challenges of terraforming firsthand and stay in our pressurized eco-domes that simulate a future Martian metropolis. Whether you are driving a rover over the regolith or watching the blue sunset, Mars offers a raw beauty that captivates the adventurous soul.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5V_M1UwwD9ASKcRGnpfcsAp_TdCa2HbLShA&s"
+    },
+    {
+        "name": "Titan Lakes",
+        "desc": "Witness the surreal beauty of Saturn's largest moon, Titan, the only other world in the solar system with stable liquid on its surface. Instead of water, you will sail across calm lakes of liquid methane and ethane, surrounded by an alien landscape shrouded in a thick, orange nitrogen haze. The low gravity and dense atmosphere make it possible to experience 'human flight' with specialized winged suits. Gaze up through the clouds to see the majestic rings of Saturn filling the sky, a sight that makes the long journey to the outer solar system truly worth it.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/09/Two_Halves_of_Titan.png"
+    },
+    {
+        "name": "Venus Cloud City",
+        "desc": "Escape to the upper atmosphere of Venus, where our floating cities drift peacefully above the crushing pressure and searing heat of the surface. At an altitude of 50 kilometers, the temperature and pressure are Earth-like, allowing for open-air observation decks protected by breathable air shields. Watch the sun rise in the west and set in the east as you float through clouds of sulfuric acid that reflect the sunlight in dazzling golden hues. This is a haven of high-tech luxury, proving that even the most hostile planets can be tamed for human comfort.",
+        "image": "https://images.newscientist.com/wp-content/uploads/2021/06/25205719/28-june_no-life-venus.jpg"
+    },
+    {
+        "name": "Asteroid Belt Mining Colony",
+        "desc": "Join the frontier of space commerce at the Asteroid Belt Mining Colony, located on the dwarf planet Ceres. This destination offers a unique look at the industrial heart of the solar system, where massive automated drills extract water ice and precious metals. Experience life inside a hollowed-out asteroid, spinning to create artificial gravity, and try your hand at zero-g sports in the central hub. It is an educational and gritty experience that highlights the ingenuity and hard work required to build a multi-planetary civilization.",
+        "image": "https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-1gwfy79_800fe92e.jpeg?region=0%2C0%2C1920%2C1189"
+    }
+]

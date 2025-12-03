@@ -14,7 +14,7 @@ jobs:
     # Definimos el directorio de trabajo por defecto para todos los 'run'
     defaults:
       run:
-        working-directory: ./ISW2_C_R_1_VictorManuelSanzRubio
+        working-directory: .
 
     steps:
       - name: Checkout del código

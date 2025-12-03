@@ -9,7 +9,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: 'relecloud-web'
   PYTHON_VERSION: '3.12'
-  PROJECT_PATH: 'ISW2_C_R_1_VictorManuelSanzRubio'
+  PROJECT_PATH: '.'
 
 jobs:
   build:
@@ -50,7 +50,9 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           cd ${{ env.PROJECT_PATH }}
-          zip -r ../release.zip ./* - name: Upload artifact for deployment jobs
+          zip -r release.zip ./* 
+        
+      - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4
         with:
           name: python-app

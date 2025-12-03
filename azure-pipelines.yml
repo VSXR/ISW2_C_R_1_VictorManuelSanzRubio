@@ -16,8 +16,8 @@ variables:
   # Environment name
   environmentName: 'relecloud-web'
 
-  # IMPORTANTE: Definir la ruta de la subcarpeta donde está el código
-  projectRoot: $(System.DefaultWorkingDirectory)/ISW2_C_R_1_VictorManuelSanzRubio
+  # IMPORTANTE: Aqui se define la ruta donde está el código
+  projectRoot: $(System.DefaultWorkingDirectory)
 
   # Updated Python version
   pythonVersion: '3.12'

@@ -38,5 +38,37 @@
     {
         "name": "Interstellar Precursor Mission",
         "desc": "Be part of humanity's first steps toward the stars with the Interstellar Precursor Mission. This groundbreaking cruise takes you on a journey beyond the heliosphere, the bubble of solar wind that surrounds our solar system, into interstellar space. Experience the awe of crossing this boundary and witnessing the pristine environment of the interstellar medium. Our state-of-the-art vessel is equipped with advanced scientific instruments, allowing passengers to contribute to real research on cosmic rays, magnetic fields, and interstellar particles. This mission is ideal for those with a passion for science and exploration, offering a rare opportunity to venture where few have gone before and to be part of humanity's quest to understand the universe."
+    },
+    {
+        "name": "Mercury Sun-Skimmer",
+        "desc": "Feel the raw power of the sun like never before with the Mercury Sun-Skimmer. Protected by state-of-the-art thermal shields, this daring cruise takes you to the closest planet to our star. Witness solar flares up close and explore the permanently shadowed craters at Mercury's poles, where ancient ice lies hidden in eternal darkness. It's a study in contrasts—searing heat and freezing cold—offering a visual spectacle of sunspots and magnetic loops that dance across the solar surface. This is the ultimate trip for thrill-seekers who want to live on the edge."
+    },
+    {
+        "name": "Jupiter Great Red Spot Safari",
+        "desc": "Dive into the largest storm in the solar system on the Jupiter Great Red Spot Safari. Our reinforced atmospheric cruisers descend safely into the upper layers of Jupiter's swirling clouds, giving you a front-row seat to a storm that has raged for centuries. Marvel at the vibrant bands of ammonia clouds, lightning strikes the size of cities, and the sheer scale of the gas giant. This expedition combines meteorology with luxury, offering a safe yet heart-pounding way to experience the chaotic beauty of the King of Planets."
+    },
+    {
+        "name": "Ganymede Magnetic Retreat",
+        "desc": "Relax in the magnetic embrace of Jupiter's largest moon, Ganymede. As the only moon with its own magnetic field, it offers spectacular auroras that rival those of Earth. This wellness-focused cruise centers around our dome resorts, where you can enjoy spa treatments while watching the shimmering lights dance overhead. Explore the icy terrain by day and unwind in zero-gravity flotation tanks by night. It is a peaceful sanctuary in the heart of the Jovian system, perfect for travelers seeking restoration and natural beauty."
+    },
+    {
+        "name": "Martian Moons Hopper",
+        "desc": "Why visit one moon when you can visit two? The Martian Moons Hopper is a dynamic tour of Phobos and Deimos, the potato-shaped companions of Mars. Experience the incredibly low gravity where you can practically jump into orbit. The tour includes a visit to the stickney crater on Phobos and offers unparalleled views of Mars filling the sky above. It is a playful and active cruise, featuring low-g sports competitions and cave exploration, ideal for families and active groups looking for a fun-filled space vacation."
+    },
+    {
+        "name": "Callisto Crater Trek",
+        "desc": "Explore the most heavily cratered object in the solar system with the Callisto Crater Trek. This moon of Jupiter is a frozen record of the solar system's violent history. Our guided expeditions take you across the ancient, icy surface to inspect impact sites that are billions of years old. Stay in the Valhalla Basin Outpost, a marvel of engineering built directly into the rims of a massive impact crater. This trip appeals to geologists and history lovers, offering a quiet, starkly beautiful landscape that has remained unchanged for eons."
+    },
+    {
+        "name": "Uranus Azure Mystery",
+        "desc": "Venture to the sideways planet on the Uranus Azure Mystery tour. Witness the strange, rolling rotation of this ice giant and its faint, vertical rings. The cruise features sub-orbital flights into the methane-rich atmosphere that gives the planet its stunning cyan color. It is an artist's dream, with soft, diffuse light and a surreal, featureless blue horizon that evokes a sense of infinite calm. This off-the-beaten-path destination is perfect for those who have seen it all and crave a completely new aesthetic experience."
+    },
+    {
+        "name": "Neptune Triton Geysers",
+        "desc": "Journey to the windiest planet in the solar system and its captured moon, Triton. The Neptune Triton Geysers expedition highlights the cryogenic wonders of this retrograding moon. Watch nitrogen geysers erupt kilometers into the thin atmosphere and explore the 'cantaloupe terrain' peculiar to Triton. The backdrop is the deep blue marble of Neptune, a stark contrast to the pinkish ice of the moon. It is a cold, beautiful, and scientifically fascinating destination at the edge of the sun's influence."
+    },
+    {
+        "name": "Ceres Dawn Treader",
+        "desc": "Visit the queen of the asteroid belt on the Ceres Dawn Treader cruise. This dwarf planet is a world of water, ice, and mystery. Visit the famous bright spots of Occator Crater and learn about the potential for subsurface oceans. The colony here acts as a gateway to the outer solar system, a bustling hub of trade and science. This tour offers a mix of urban excitement in the colony domes and rugged exploration on the icy surface, providing a comprehensive look at humanity's first foothold in the asteroid belt."
     }
 ]

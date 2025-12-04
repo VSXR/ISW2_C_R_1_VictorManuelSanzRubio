@@ -49,13 +49,42 @@
                         <br>
                         <div class="text-center">
                             <a href="{% url 'cruise_view_reviews' cruise.pk %}" class="btn btn-primary">VIEW ALL CRUISE REVIEWS</a>
-                            <a href="{% url 'cruise_create_reviews' cruise.pk %}" class="btn btn-primary">LEAVE A CRUISE REVIEW</a>
-                        </div>
+                            
+                            {% if has_purchased_cruise and has_purchased_destination %}
+                                <a href="{% url 'cruise_create_reviews' cruise.pk %}" class="btn btn-primary">LEAVE A CRUISE REVIEW</a>
+                            
+                            {% elif has_purchased_cruise and not has_purchased_destination %}
+                                <p class="text-muted mt-2 mb-1"><small>You need to purchase a destination to review.</small></p>
+                                {% with first_dest=cruise.destinations.first %}
+                                    {% if first_dest %}
+                                        <a href="{% url 'destination_details' first_dest.pk %}" class="btn btn-warning">PURCHASE DESTINATION</a>
+                                    {% endif %}
+                                {% endwith %}
+
+                            {% else %}
+                                <a href="{% url 'purchase_cruise' cruise.pk %}" class="btn btn-info">PURCHASE CRUISE</a>
+                            {% endif %}
+                            </div>
                     {% else %}
                         <p class="text-center">OH NO... THERE ARE NO REVIEWS AVAILABLE!</p>
                         <div class="text-center">
-                            <a href="{% url 'cruise_create_reviews' cruise.pk %}" class="btn btn-primary">LEAVE A CRUISE REVIEW</a>
-                        </div>
+                            
+                            {% if has_purchased_cruise and has_purchased_destination %}
+                                <a href="{% url 'cruise_create_reviews' cruise.pk %}" class="btn btn-primary">LEAVE A CRUISE REVIEW</a>
+                            
+                            {% elif has_purchased_cruise and not has_purchased_destination %}
+                                <p class="text-muted mb-2"><small>You need to purchase a destination to review.</small></p>
+                                {% with first_dest=cruise.destinations.first %}
+                                    {% if first_dest %}
+                                        <a href="{% url 'destination_details' first_dest.pk %}" class="btn btn-warning">PURCHASE DESTINATION</a>
+                                    {% endif %}
+                                {% endwith %}
+
+                            {% else %}
+                                <p class="text-muted mb-2">You must purchase this cruise to be the first to review it.</p>
+                                <a href="{% url 'purchase_cruise' cruise.pk %}" class="btn btn-info">PURCHASE CRUISE</a>
+                            {% endif %}
+                            </div>
                     {% endif %}
                 </div>
             </div>

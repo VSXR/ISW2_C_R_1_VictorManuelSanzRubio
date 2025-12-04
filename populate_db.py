@@ -51,10 +51,14 @@ def populate():
         )
         created_destinations.append(dest)
 
-    # --- 4. CREAR CRUCEROS Y ASIGNAR DESTINOS ---
-    print(f"Creating {len(cruises_data)} cruises...")
-    all_cruises = []
+    # --- 4. CREAR CRUCEROS Y ASIGNARLOS BALANCEADAMENTE ---
+    # Regla: Cada destino tiene entre 1 y 3 cruceros. 
+    # Un crucero pertenece a un solo destino (no se comparten).
     
+    print(f"Creating {len(cruises_data)} cruises...")
+    all_cruises_objects = []
+    
+    # Primero creamos todos los objetos Cruise sin asignar destinos aún
     for c_data in cruises_data:
         cruise = Cruise.objects.create(
             name=c_data['name'],
@@ -63,23 +67,67 @@ def populate():
             max_capacity=random.randint(10, 100),
             available_seats=random.randint(1, 10)
         )
+        all_cruises_objects.append(cruise)
+
+    # Mezclamos los cruceros para que la asignación sea aleatoria
+    random.shuffle(all_cruises_objects)
+
+    print("Assigning cruises to destinations (1-3 per destination, disjoint)...")
+    
+    # Verificamos que hay suficientes cruceros para dar al menos 1 a cada destino
+    if len(all_cruises_objects) < len(created_destinations):
+        print("WARNING: Not enough cruises to give 1 to each destination!")
+
+    # Diccionario para controlar asignaciones: {destination: [list_of_cruises]}
+    dest_assignments = {dest: [] for dest in created_destinations}
+    unassigned_cruises = all_cruises_objects[:] # Copia de la lista
+
+    # Paso 1: Asegurar que cada destino tenga al menos 1 crucero
+    for dest in created_destinations:
+        if unassigned_cruises:
+            c = unassigned_cruises.pop()
+            dest_assignments[dest].append(c)
+
+    # Paso 2: Repartir el resto de cruceros (hasta un máximo de 3 por destino)
+    while unassigned_cruises:
+        # Elegir un destino al azar
+        target_dest = random.choice(created_destinations)
         
-        # Asignar aleatoriamente de 1 a 5 destinos por crucero
-        # min() asegura que no intentemos coger más destinos de los que existen
-        num_dests = random.randint(1, 5)
-        num_dests = min(num_dests, len(created_destinations))
-        
-        selected_dests = random.sample(created_destinations, num_dests)
-        cruise.destinations.set(selected_dests)
-        cruise.save()
-        all_cruises.append(cruise)
+        # Solo asignar si tiene menos de 3
+        if len(dest_assignments[target_dest]) < 3:
+            c = unassigned_cruises.pop()
+            dest_assignments[target_dest].append(c)
+        else:
+            # Si todos los destinos ya tienen 3 y aun sobran cruceros,
+            # rompemos el ciclo para evitar bucle infinito (o podríamos aumentar el límite)
+            # Verificamos si hay algún destino con espacio
+            if all(len(v) >= 3 for v in dest_assignments.values()):
+                print("All destinations have 3 cruises. Remaining cruises will be unassigned.")
+                break
+
+    # Paso 3: Guardar las relaciones en la base de datos
+    for dest, cruises in dest_assignments.items():
+        for cruise in cruises:
+            # Asignamos el destino. Al ser ManyToMany, usamos set() pasando la lista [dest]
+            # Esto cumple la regla: "que otro destino no pueda tener un mismo crucero"
+            # porque cada crucero de la lista 'all_cruises_objects' solo se asigna una vez aquí.
+            cruise.destinations.set([dest])
+            cruise.save()
+            # Añadimos a la lista general para usar en compras/reviews
+            # (Nota: all_cruises ya tiene todos, pero esto confirma los asignados si quisiéramos filtrar)
 
     # --- 5. GENERAR ACTIVIDAD (COMPRAS Y REVIEWS) ---
     print("Generating purchases and reviews...")
     
+    # Obtenemos solo los cruceros que efectivamente tienen destino asignado
+    active_cruises = [c for c in all_cruises_objects if c.destinations.exists()]
+
     for user in created_users:
-        # Cada usuario compra 2 cruceros aleatorios
-        user_cruises = random.sample(all_cruises, 2)
+        # Cada usuario compra 2 cruceros aleatorios (si hay suficientes)
+        if len(active_cruises) >= 2:
+            user_cruises = random.sample(active_cruises, 2)
+        else:
+            user_cruises = active_cruises
         
         for cruise in user_cruises:
             # Compra del crucero
@@ -95,6 +143,7 @@ def populate():
             )
             
             # Compra y Review para los destinos de ese crucero
+            # Como ahora la regla es 1 crucero -> 1 destino, este bucle corre una sola vez por crucero
             for dest in cruise.destinations.all():
                 Purchase.objects.create(user=user, destination=dest)
                 

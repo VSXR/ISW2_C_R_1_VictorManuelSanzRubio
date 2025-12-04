@@ -17,6 +17,7 @@ from .views import (
     cruise_details,
     cruise_reviews,
     cruise_review_create,
+    purchase_cruise,
     CruiseDetailView,
     CruiseReviewCreate,
 )
@@ -53,6 +54,7 @@ urlpatterns = [
     path('cruise/<int:pk>/', cruise_details, name='cruise_details'),
     path('cruise/<int:pk>/reviews/', cruise_reviews, name='cruise_view_reviews'),
     path('cruises/<int:pk>/reviews/create/', cruise_review_create, name='cruise_create_reviews'),
+    path('cruise/<int:pk>/purchase/', purchase_cruise, name='purchase_cruise'),
 
     # AUTH
     path('register/', register, name='register'),

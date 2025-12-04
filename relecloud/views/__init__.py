@@ -11,6 +11,7 @@ from .cruise import (
     cruise_details,
     cruise_reviews,
     cruise_review_create,
+    purchase_cruise,
     CruiseDetailView,
     CruiseReviewCreate,
 )

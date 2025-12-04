@@ -56,23 +56,23 @@ def destination_review_create(request, pk):
             pass
     return render(request, 'reviews/review_create.html', {'form': form, 'item': destination, 'item_type': 'destination'})
 
-@login_required
-def cruise_review_create(request, pk):
-    cruise = get_object_or_404(Cruise, pk=pk)
-    if request.method == 'POST':
-        form = CruiseReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.cruise = cruise
-            review.name = request.user.username
-            review.save()
-            messages.success(request, 'Thank you, your review has been submitted successfully!')
-            return redirect('cruise_details', pk=cruise.pk)
-    else:
-        form = CruiseReviewForm()
-        try:
-            form.fields['name'].initial = request.user.username
-            form.fields['name'].widget = forms.HiddenInput()
-        except Exception:
-            pass
-    return render(request, 'reviews/review_create.html', {'form': form, 'item': cruise, 'item_type': 'cruise'})
+# @login_required
+# def cruise_review_create(request, pk):
+#     cruise = get_object_or_404(Cruise, pk=pk)
+#     if request.method == 'POST':
+#         form = CruiseReviewForm(request.POST)
+#         if form.is_valid():
+#             review = form.save(commit=False)
+#             review.cruise = cruise
+#             review.name = request.user.username
+#             review.save()
+#             messages.success(request, 'Thank you, your review has been submitted successfully!')
+#             return redirect('cruise_details', pk=cruise.pk)
+#     else:
+#         form = CruiseReviewForm()
+#         try:
+#             form.fields['name'].initial = request.user.username
+#             form.fields['name'].widget = forms.HiddenInput()
+#         except Exception:
+#             pass
+#     return render(request, 'reviews/review_create.html', {'form': form, 'item': cruise, 'item_type': 'cruise'})

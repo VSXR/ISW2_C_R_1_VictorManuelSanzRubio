@@ -1,0 +1,8 @@
+PROYECTO: SEGUNDA PRÁCTICA DE LA ASIGNATURA INGENIERÍA DEL SOFTWARE II (CURSO 2025 - 2026)
+GRUPO: ISW2_C_R_1_VictorManuelSanzRubio
+
+LINK AL REPOSITORIO DE GITHUB: https://github.com/VSXR/ISW2_C_R_1_VictorManuelSanzRubio
+
+LINK AL REPOSITORIO DE AZURE: https://dev.azure.com/relecloud-2526-org/ISW2_C_R_1_VictorManuelSanzRubio
+
+LINK A LA WEB DE LA SEGUNDA PRÁCTICA: https://relecloud-web.azurewebsites.net/

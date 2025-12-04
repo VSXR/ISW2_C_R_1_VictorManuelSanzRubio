@@ -19,7 +19,7 @@ from .review import (
     destination_reviews,
     destination_review_create,
     cruise_reviews,
-    cruise_review_create,
+    # cruise_review_create,
 )
 from django.shortcuts import render, redirect
 from django.contrib import messages
